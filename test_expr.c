@@ -33,7 +33,7 @@ static void testExpressions (void);
 char *testName;
 
 // main method
-/*int
+int 
 main (void) 
 {
   testName = "";
@@ -43,7 +43,7 @@ main (void)
   testExpressions();
 
   return 0;
-}*/
+}
 
 // ************************************************************ 
 void

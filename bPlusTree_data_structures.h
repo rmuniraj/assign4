@@ -64,39 +64,8 @@ char* serializeNode(BPlus_Node* node);
 void deserializeNode(BPlus_Node* node, char* data);
 
 //used for building tree
-void initRoot(BTreeHandle* tree);
-int findChild(BPlus_Node* node, int target);
-int findEntry(BPlus_Node* node, int target);
-int findBucket(BTreeHandle* tree, int target,bool* isExist);
 BPlus_Node* createNode(BTreeHandle* tree);
-BPlus_Node* loadNode(BTreeHandle* tree, int pageNum);
-void saveNode(BTreeHandle* tree, BPlus_Node* node);
 void freeNode(BPlus_Node* node);
 
-//used for insertion
-bool isFull(BTreeHandle* const tree, BPlus_Node* const node);
-void addEntry(BPlus_Node* node, int target, RID rid);
-void addChildren(BPlus_Node* node, int target, BPlus_Node* child);
-void redistributeLeaf(BPlus_Node* node, BPlus_Node* newNode);
-int redistributeNonLeaf(BPlus_Node* node, BPlus_Node* newNode);
-void insertLeaf(BTreeHandle* tree, BPlus_Node* node, int target, RID rid);
-void insertNonLeaf(BTreeHandle* tree, BPlus_Node* node, BPlus_Node* child, int target);
-BPlus_Node* splitLeaf(BTreeHandle* tree, BPlus_Node* node, int target, RID rid);
-BPlus_Node* splitNonLeaf(BTreeHandle* tree, BPlus_Node* node, BPlus_Node* child, int target, int* separator);
-
-//used for deletion
-/*
-void deleteLeaf(BTreeHandle* tree, BPlus_Node* node, int target);
-bool hasMoreThanHalf(BTreeHandle* tree, BPlus_Node* node);
-void removeEntry(BPlus_Node* node, int target);
-bool hasLeftSib(BTreeHandle* tree, BPlus_Node* node);
-bool hasRightSib(BTreeHandle* tree, BPlus_Node* node);
-void borrowFromLeafSib(BTreeHandle* tree, BPlus_Node* sender, BPlus_Node* receiver);
-void mergeLeaf(BTreeHandle* tree, BPlus_Node* mergedNode, BPlus_Node* node, int target);
-BPlus_Node* loadLeftSib(BTreeHandle* tree, BPlus_Node* node);
-BPlus_Node* loadRightSib(BTreeHandle* tree, BPlus_Node* node);
-void deleteNonLeaf(BTreeHandle* tree, BPlus_Node* node, BPlus_Node* child, int target);
-void removeChildren(BPlus_Node* node, BPlus_Node* child, int target);
-*/
 
 #endif /* BPLUSTREE_DATA_STRUCTURES_H_ */

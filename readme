@@ -1,0 +1,79 @@
+**Assignment 4: B + Tree**
+****************************************************
+
+					**Team:vjonnala,rmuniraj,sallu1,skorvar**
+					**************************************
+
+CONTENTS
+*********
+1)Instructions to run the code
+2)Description of functions used
+
+*****************************************************************
+
+1)Instructions to run the code
+*******************************
+
+For executing mandatory and additional test cases:
+
+1) In the terminal,navigate to the assignment directory.
+
+2) Type: 
+	make -f makefile
+	make -f makefile_exp
+
+
+**** For B+ Tree Index Method 1 to Insert Keys  ***
+4) ./test_assign4
+
+**** For testing test expression ***
+5) ./test_expr
+
+NOTE
+*****
+The Current Implementation works fine for the first method.
+It might throw Segmentaiton Fault after first method gets done.
+
+3)Description of functions used
+********************************
+1) initIndexManager
+	Initilaizes th eINdex Manager.
+
+2) shutdownIndexManager
+	Shut down all the resources used in the Index Manager Implementation
+3) createBtree
+	1) Creates the index file
+	2) Initializes the Leaf Node in this method.
+	3) Pins the Buffer Manager to Pin the record and Unpin it.
+	4) Serializes the tree infomration before writing to the page.
+
+4) openBtree
+	1) Opens the Buffer Pool contents and Pins the page to get back the records.
+	2) De-Serialize the Root content after unpin the page
+	3) Close the Method.
+
+5) closeBtree
+	1) Close the b-tree node.
+
+6) deleteBtree
+	1) Deletes the B Tree index file created
+
+7) getNumNodes
+	1) get the number of nodes in the file created.
+	2) This is obtained from the Page size
+	
+8) getNumEntries
+	1) Gets the number of entries used in the Page file
+
+9) findKey
+	1) Search for the key from the pafe file.
+	2) Pin the pages with the page number.
+	3) Get all the keys from the page and check for the key existance.
+10) insertKey
+	1) Given the key from the test case, serialise the root entries.
+	2) Create a Leaf Node and insert the key into it.
+	3) Since the maximum entries in the node is 2., split the leaf node when it is full.
+	4) Insert the leaf node  values into the root if full.
+	5) Call the Buffer Manager to pin the page and insert the key values.
+
+********************************************************************
